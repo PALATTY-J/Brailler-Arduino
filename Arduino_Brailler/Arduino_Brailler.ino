@@ -2,7 +2,7 @@ int RB[14];
 #define rx1 9
 #define rx2 10
 #define ack 8
-
+#define mode 11
 
 
 void setup(void)
@@ -11,6 +11,7 @@ void setup(void)
   pinMode(ack,OUTPUT);
   pinMode(rx1,INPUT);
   pinMode(rx2,INPUT);
+  pinMode(mode,INPUT);
   
   
   
@@ -21,6 +22,10 @@ void loop(void)
 
 {
 
+
+while (digitalRead(mode)==HIGH)
+{
+   Serial.print("Transmission Begins");
    for (int i=0;i<=12;i+2)
    {
     if (digitalRead(rx1)==HIGH)
@@ -42,16 +47,19 @@ void loop(void)
       RB[i+1]=0;
     }
     ackjp();
+    Serial.print(RB[i]);
+    Serial.print(RB[i+1]);
+    Serial.print("\n End OF PAcKET RECEPTION");
+
     digitalWrite(ack,LOW);
+    break;
    }
 
-for (int i=0;i<=12;i++)
-   {
-    Serial.print( RB[i] ) ;
-   }
+Serial.print("\n IAM OUT");
  
+}
+ Serial.print("\n IAM OUT");
 
- 
 }
 
 void ackjp(void)
