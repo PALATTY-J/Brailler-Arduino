@@ -1,21 +1,42 @@
 const int stepPinX = 8; 
 const int dirPinX = 9; 
 const int stepPinY = 10; 
-const int dirPinY = 11; 
+const int dirPinY = 11;
+
+const int LlimitSwitch = 2;
+const int LlimitLED=4;
+
+const int RlimitSwitch = 3;
+const int RlimitLED=5;
+
+const int solenoidIP1 = 7;
+const int solenoidIP2 = 6;
+
 
  
-void setup() {
-  // Sets the two pins as Outputs
+void setup() 
+{
   pinMode(stepPinX,OUTPUT); 
   pinMode(dirPinX,OUTPUT);
+  
   pinMode(stepPinY,OUTPUT); 
   pinMode(dirPinY,OUTPUT);
-  pinMode(13,OUTPUT);
-  pinMode(3,OUTPUT);
+  
+  pinMode(LlimitLED,OUTPUT);
+  pinMode(LlimitSwitch,INPUT);
+  
+  pinMode(solenoidIP1,OUTPUT);
+  pinMode(solenoidIP2,OUTPUT);
 
-  pinMode(2,INPUT);
+  pinMode(RlimitLED,OUTPUT);
+  pinMode(RlimitSwitch,INPUT);
+
+
+
   digitalWrite(dirPinX,LOW);
-  digitalWrite(dirPinY,HIGH);
+  digitalWrite(dirPinY,LOW);
+
+  attachInterrupt(digitalPinToInterrupt(RlimitSwitch),resetPosition,LOW);
   initialCalibration();
   
 
@@ -25,12 +46,8 @@ void loop() {
   
   
 
-  for(int x=0;x<=20;x++)
+  for(int x=0;x<=100;x++)
     {
-//    digitalWrite(stepPinY,HIGH); 
-//    delayMicroseconds(730); 
-//    digitalWrite(stepPinY,LOW); 
-//    delayMicroseconds(730);
 
     digitalWrite(stepPinX,HIGH); 
     delayMicroseconds(500); 
@@ -39,14 +56,11 @@ void loop() {
 
     }
 
-delay(100);
-    
- 
-}
+ }
 
 void initialCalibration()
 {
-  boolean switchVal=digitalRead(2);
+  boolean switchVal=digitalRead(LlimitSwitch);
 
 
 while (switchVal==LOW)
@@ -55,20 +69,40 @@ while (switchVal==LOW)
     delayMicroseconds(500); 
     digitalWrite(stepPinX,LOW); 
     delayMicroseconds(500);
-    switchVal=digitalRead(2);
+    switchVal=digitalRead(LlimitSwitch);
     }
+    
+digitalWrite(dirPinX,HIGH);
+digitalWrite(LlimitLED,HIGH);
 
-for(int x=0;x<=20;x++)
+
+}
+
+
+void resetPosition()
 {
+  digitalWrite(RlimitLED,HIGH);
+  digitalWrite(dirPinX,LOW);
+  
+
+
+  for (int x=0;x<=870;x++)
+  {
     digitalWrite(stepPinX,HIGH); 
     delayMicroseconds(500); 
     digitalWrite(stepPinX,LOW); 
     delayMicroseconds(500);
+  }
 
-    }
-    
-digitalWrite(dirPinX,HIGH);
-digitalWrite(3,HIGH);
+  for (int x=0;x<=18*6;x++)
+  {
+    digitalWrite(stepPinY,HIGH); 
+    delayMicroseconds(730); 
+    digitalWrite(stepPinY,LOW); 
+    delayMicroseconds(730);
+  }
+   digitalWrite(dirPinX,HIGH);
+   digitalWrite(RlimitLED,LOW);
 
 
 }
