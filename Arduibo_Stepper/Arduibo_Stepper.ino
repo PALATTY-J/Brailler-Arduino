@@ -1,5 +1,6 @@
 const int stepPinX = 8; 
-const int dirPinX = 9; 
+const int dirPinX = 9;
+ 
 const int stepPinY = A0; 
 const int dirPinY = A1;
 
@@ -47,14 +48,14 @@ void setup()
 
 
 
-  digitalWrite(dirPinX,LOW);
+  digitalWrite(dirPinX,HIGH);
   digitalWrite(dirPinY,LOW);
 
-  digitalWrite(ackPin,HIGH);
+  digitalWrite(ackPin,LOW);
 
 
-  attachInterrupt(digitalPinToInterrupt(RlimitSwitch),resetPosition,LOW);
-  initialCalibration();
+attachInterrupt(digitalPinToInterrupt(RlimitSwitch),resetPosition,HIGH);
+initialCalibration();
   mySerial.begin(9600);
    Serial.begin(9600);
   
@@ -64,21 +65,25 @@ void setup()
 void loop()
 {
 
-//  for (int x=0;x<=500;x++)
-//  {
-//    digitalWrite(stepPinY,HIGH); 
-//    delayMicroseconds(730); 
-//    digitalWrite(stepPinY,LOW); 
-//    delayMicroseconds(730);
-//  }
-//
-//  for (int x=0;x<=500;x++)
+  
+
+//  for (int x=0;x<=150;x++)
 //  {
 //    digitalWrite(stepPinX,HIGH); 
 //    delayMicroseconds(500); 
 //    digitalWrite(stepPinX,LOW); 
 //    delayMicroseconds(500);
 //  }
+//  delay(500);
+//
+//   for (int x=0;x<=150;x++)
+//  {
+//    digitalWrite(stepPinY,HIGH); 
+//    delayMicroseconds(500); 
+//    digitalWrite(stepPinY,LOW); 
+//    delayMicroseconds(500);
+//  }
+//  delay(500);
 
   
    char num[2];
@@ -90,36 +95,43 @@ void loop()
       num[i] = mySerial.read();
       delay(1);
     }
+  Serial.print(num);
+  Serial.print("\n");
+  sendACK();
+  }
 
-    int tensPlace=dataConversion(num[1]);
-    int unitsPlace=dataConversion(num[2]);
-
-    
-
-    int toSend=(tensPlace*10)+(unitsPlace*0);
-    
-    
-    char o=num[0];
-    switch (o)
-    {
-      case 'x':
-      Xstepper(toSend);
-      break;
-
-      case 'y':
-      Ystepper(toSend);
-      break;
-
-      case 'z':
-      Zsolenoid();
-      break;
-    }
-   
-   
-    
-      
   
-}
+
+//
+//    int tensPlace=dataConversion(num[1]);
+//    int unitsPlace=dataConversion(num[2]);
+//
+//    
+//
+//    int toSend=(tensPlace*10)+(unitsPlace*0);
+//    
+//    
+//    char o=num[0];
+//    switch (o)
+//    {
+//      case 'x':
+//      Xstepper(toSend);
+//      break;
+//
+//      case 'y':
+//      Ystepper(toSend);
+//      break;
+//
+//      case 'z':
+//      Zsolenoid();
+//      break;
+//    }
+//   
+//   
+//    
+//      
+//  
+//}
 
   
 
@@ -139,7 +151,7 @@ while (switchVal==LOW)
     switchVal=digitalRead(LlimitSwitch);
     }
     
-digitalWrite(dirPinX,HIGH);
+digitalWrite(dirPinX,LOW);
 digitalWrite(LlimitLED,HIGH);
 
 
@@ -149,26 +161,22 @@ digitalWrite(LlimitLED,HIGH);
 void resetPosition()
 {
   digitalWrite(RlimitLED,HIGH);
-  digitalWrite(dirPinX,LOW);
-  
+  digitalWrite(dirPinX,HIGH);
+  boolean VAL;
+  VAL=digitalRead(LlimitSwitch);
 
 
-  for (int x=0;x<=870;x++)
+while (VAL==0)
   {
     digitalWrite(stepPinX,HIGH); 
     delayMicroseconds(500); 
     digitalWrite(stepPinX,LOW); 
     delayMicroseconds(500);
+    VAL=digitalRead(LlimitSwitch);
   }
 
-  for (int x=0;x<=18*6;x++)
-  {
-    digitalWrite(stepPinY,HIGH); 
-    delayMicroseconds(730); 
-    digitalWrite(stepPinY,LOW); 
-    delayMicroseconds(730);
-  }
-   digitalWrite(dirPinX,HIGH);
+  
+   digitalWrite(dirPinX,LOW);
    digitalWrite(RlimitLED,LOW);
 
 
@@ -228,9 +236,9 @@ int dataConversion(char XYZ)
 
 void sendACK()
 {
-  digitalWrite(ackPin,LOW);
-  delayMicroseconds(25);
   digitalWrite(ackPin,HIGH);
+  delayMicroseconds(25);
+  digitalWrite(ackPin,LOW);
   
   
 

@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{78EB8D88-D9AB-46D9-97FE-2369D2C35665}</ProjectGuid>
+    <RootNamespace>
+    </RootNamespace>
+    <ProjectName>Arduino_Brailler</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>
+    </PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>
+    </PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>
+    </PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>
+    </PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\Arduino_Brailler;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\libraries;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\libraries;$(ProjectDir)..\..\..\Arduino\libraries;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\variants\standard;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\tools\avr\avr\include;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\tools\avr\avr\include\avr;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\tools\avr\lib\gcc\avr\4.8.1\include;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\tools\avr\lib\gcc\avr\4.9.2\include;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\tools\avr\lib\gcc\avr\4.9.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ProjectDir)__vm\.Arduino_Brailler.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+      <PreprocessorDefinitions>__AVR_ATmega328p__;__AVR_ATmega328P__;F_CPU=16000000L;ARDUINO=10807;ARDUINO_AVR_UNO;ARDUINO_ARCH_AVR;__cplusplus=201103L;_VMICRO_INTELLISENSE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectCapability Include="VisualMicro" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Arduino_Brailler.ino">
+      <FileType>CppCode</FileType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\Arduino.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\binary.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\Client.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\HardwareSerial.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\HardwareSerial_private.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\IPAddress.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\new.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\PluggableUSB.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\Print.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\Printable.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\Server.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\Stream.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\Udp.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\USBAPI.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\USBCore.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\USBDesc.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\WCharacter.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\wiring_private.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\WString.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\variants\standard\pins_arduino.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="__vm\.Arduino_Brailler.vsarduino.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\library.cpp" />
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\abi.cpp" />
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\CDC.cpp" />
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\HardwareSerial.cpp" />
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\HardwareSerial0.cpp" />
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\HardwareSerial1.cpp" />
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\HardwareSerial2.cpp" />
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\HardwareSerial3.cpp" />
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\hooks.c">
+      <FileType>CppCode</FileType>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\IPAddress.cpp" />
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\main.cpp" />
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\new.cpp" />
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\PluggableUSB.cpp" />
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\Print.cpp" />
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\Stream.cpp" />
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\Tone.cpp" />
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\USBCore.cpp" />
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\WInterrupts.c">
+      <FileType>CppCode</FileType>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\wiring.c">
+      <FileType>CppCode</FileType>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\wiring_analog.c">
+      <FileType>CppCode</FileType>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\wiring_digital.c">
+      <FileType>CppCode</FileType>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\wiring_pulse.c">
+      <FileType>CppCode</FileType>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\wiring_shift.c">
+      <FileType>CppCode</FileType>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\WMath.cpp" />
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\WString.cpp" />
+    <ClCompile Include="New Protocol JP\New Protocol JP\Arduino_Brailler\Sketch.cpp" />
+  </ItemGroup>
+  <PropertyGroup>
+    <DebuggerFlavor>VisualMicroDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Arduino_Brailler.ino" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="__vm\.Arduino_Brailler.vsarduino.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\Arduino.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\binary.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\Client.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\HardwareSerial.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\HardwareSerial_private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\IPAddress.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\new.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\PluggableUSB.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\Print.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\Printable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\Server.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\Stream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\Udp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\USBAPI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\USBCore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\USBDesc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\WCharacter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\wiring_private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\core\WString.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="New Protocol JP\New Protocol JP\ArduinoCore\include\variants\standard\pins_arduino.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\library.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\abi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\CDC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\HardwareSerial.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\HardwareSerial0.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\HardwareSerial1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\HardwareSerial2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\HardwareSerial3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\hooks.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\IPAddress.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\new.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\PluggableUSB.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\Print.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\Stream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\Tone.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\USBCore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\WInterrupts.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\wiring.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\wiring_analog.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\wiring_digital.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\wiring_pulse.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\wiring_shift.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\WMath.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\ArduinoCore\src\core\WString.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="New Protocol JP\New Protocol JP\Arduino_Brailler\Sketch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
