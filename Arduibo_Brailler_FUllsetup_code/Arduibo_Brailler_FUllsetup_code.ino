@@ -8,16 +8,16 @@ const int dirPinY = A1;
 const int RX = 10; 
 const int TX = 11;
 
-const int LlimitSwitch = 2;
-const int LlimitLED=4;
+//const int LlimitSwitch = 2;
+//const int LlimitLED=4;
+//
+//const int RlimitSwitch = 3;
+//const int RlimitLED=5;
+//
+//const int solenoidIP1 = 7;
+//const int solenoidIP2 = 6;
 
-const int RlimitSwitch = 3;
-const int RlimitLED=5;
-
-const int solenoidIP1 = 7;
-const int solenoidIP2 = 6;
-
-const int ackPin= A5;
+const int ackPin= 13;
 
 #include <SoftwareSerial.h>
 #include <stdlib.h>
@@ -35,14 +35,14 @@ void setup()
   pinMode(stepPinY,OUTPUT); 
   pinMode(dirPinY,OUTPUT);
   
-  pinMode(LlimitLED,OUTPUT);
+  /*pinMode(LlimitLED,OUTPUT);
   pinMode(LlimitSwitch,INPUT);
   
   pinMode(solenoidIP1,OUTPUT);
   pinMode(solenoidIP2,OUTPUT);
 
   pinMode(RlimitLED,OUTPUT);
-  pinMode(RlimitSwitch,INPUT);
+  pinMode(RlimitSwitch,INPUT);*/
 
   pinMode(ackPin,OUTPUT);
 
@@ -54,8 +54,8 @@ void setup()
   digitalWrite(ackPin,LOW);
 
 
-attachInterrupt(digitalPinToInterrupt(RlimitSwitch),resetPosition,HIGH);
-initialCalibration();
+//attachInterrupt(digitalPinToInterrupt(RlimitSwitch),resetPosition,HIGH);
+//initialCalibration();
   mySerial.begin(9600);
    Serial.begin(9600);
   
@@ -95,92 +95,92 @@ void loop()
       num[i] = mySerial.read();
       delay(1);
     }
-  Serial.print(num);
-  Serial.print("\n");
-  sendACK();
   }
+
+  /*Serial.print(num);
+  Serial.print("\n");
+  sendACK();*/
+
+
+
+    int tensplace=dataConversion(num[1]);
+    int unitsplace=dataConversion(num[2]);
+
+    
+
+    int tosend=(tensplace*10)+(unitsplace*0);
+    
+    
+    char o=num[0];
+    switch (o)
+    {
+      case 'x':
+      Xstepper(tosend);
+      break;
+
+      case 'y':
+      Ystepper(tosend);
+      break;
+
+      case 'z':
+      Zsolenoid();
+      break;
+    }
+   
+   
+    
+      
+  
+}
 
   
 
+ 
+
+//void initialCalibration()
+//{
+//  boolean switchVal=digitalRead(LlimitSwitch);
 //
-//    int tensPlace=dataConversion(num[1]);
-//    int unitsPlace=dataConversion(num[2]);
 //
-//    
-//
-//    int toSend=(tensPlace*10)+(unitsPlace*0);
-//    
-//    
-//    char o=num[0];
-//    switch (o)
-//    {
-//      case 'x':
-//      Xstepper(toSend);
-//      break;
-//
-//      case 'y':
-//      Ystepper(toSend);
-//      break;
-//
-//      case 'z':
-//      Zsolenoid();
-//      break;
+//while (switchVal==LOW)
+//  {
+//    digitalWrite(stepPinX,HIGH); 
+//    delayMicroseconds(500); 
+//    digitalWrite(stepPinX,LOW); 
+//    delayMicroseconds(500);
+//    switchVal=digitalRead(LlimitSwitch);
 //    }
-//   
-//   
 //    
-//      
-//  
+//digitalWrite(dirPinX,LOW);
+//digitalWrite(LlimitLED,HIGH);
+//
+//
 //}
 
-  
 
- }
-
-void initialCalibration()
-{
-  boolean switchVal=digitalRead(LlimitSwitch);
-
-
-while (switchVal==LOW)
-  {
-    digitalWrite(stepPinX,HIGH); 
-    delayMicroseconds(500); 
-    digitalWrite(stepPinX,LOW); 
-    delayMicroseconds(500);
-    switchVal=digitalRead(LlimitSwitch);
-    }
-    
-digitalWrite(dirPinX,LOW);
-digitalWrite(LlimitLED,HIGH);
+//void resetPosition()
+//{
+//  digitalWrite(RlimitLED,HIGH);
+//  digitalWrite(dirPinX,HIGH);
+//  boolean VAL;
+//  VAL=digitalRead(LlimitSwitch);
 
 
-}
-
-
-void resetPosition()
-{
-  digitalWrite(RlimitLED,HIGH);
-  digitalWrite(dirPinX,HIGH);
-  boolean VAL;
-  VAL=digitalRead(LlimitSwitch);
-
-
-while (VAL==0)
-  {
-    digitalWrite(stepPinX,HIGH); 
-    delayMicroseconds(500); 
-    digitalWrite(stepPinX,LOW); 
-    delayMicroseconds(500);
-    VAL=digitalRead(LlimitSwitch);
-  }
-
-  
-   digitalWrite(dirPinX,LOW);
-   digitalWrite(RlimitLED,LOW);
-
-
-}
+//while (VAL==0)
+//  {
+//    digitalWrite(stepPinX,HIGH); 
+//    delayMicroseconds(500); 
+//    digitalWrite(stepPinX,LOW); 
+//    delayMicroseconds(500);
+//    VAL=digitalRead(LlimitSwitch);
+//  }
+//
+//  
+//   digitalWrite(dirPinX,LOW);
+//   digitalWrite(RlimitLED,LOW);
+//
+//
+//}
 
 void Xstepper (int rounds)
 {
