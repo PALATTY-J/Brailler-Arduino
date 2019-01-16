@@ -2,26 +2,41 @@
 #include <SoftwareSerial.h>
 #include <stdlib.h>
 
-//Initialize the Serial Communication 
+const int ACKpin=2;
+
+const int stepPinX = 8; 
+const int dirPinX = 9;
+ 
+const int stepPinY = A0; 
+const int dirPinY = A1;
+
+
 SoftwareSerial mySerial(10, 11); // RX, TX
 
 void setup() 
 {
+  pinMode(stepPinX,OUTPUT); 
+  pinMode(dirPinX,OUTPUT);
+  
+  pinMode(stepPinY,OUTPUT); 
+  pinMode(dirPinY,OUTPUT);
+
+
+  pinMode(ACKpin,OUTPUT);
+
+  digitalWrite(dirPinX,HIGH);
+  digitalWrite(dirPinY,LOW);
+
+  digitalWrite(ACKpin,LOW);
   
   Serial.begin(9600);
   mySerial.begin(9600);
-  pinMode(2,OUTPUT);
-    pinMode(3,OUTPUT);
-
-  pinMode(4,OUTPUT);
-
-  digitalWrite(2,LOW);
+  
+ 
   
 }
 void loop()
 {
-//digitalWrite(3,HIGH);
-//digitalWrite(4,HIGH);
 
 char num[2];
 int tensplace=0;
@@ -47,7 +62,8 @@ Serial.print(num);
 
 
 
-
+if (tosend!=0)
+{
  char o=num[0];
     switch (o)
     {
@@ -61,12 +77,14 @@ Serial.print(num);
     }
  
   }
+}
+
 
 void sendAck()
 {
-  digitalWrite(2,HIGH);
-  delay(10);
-  digitalWrite(2,LOW);
+  digitalWrite(ACKpin,HIGH);
+  delay(1);
+  digitalWrite(ACKpin,LOW);
 }
 
 int dataConversion(char XYZ)
@@ -83,26 +101,26 @@ int dataConversion(char XYZ)
 
 void X(int n)
 {
-for (int i=0;i<=n;i++)
+for (int i=0;i<=3*n;i++)
 {
-  digitalWrite(3,HIGH);
-  delay(100);
-  digitalWrite(3,LOW);
-  delay(100);
-
+  digitalWrite(stepPinX,HIGH); 
+  delayMicroseconds(500); 
+  digitalWrite(stepPinX,LOW); 
+  delayMicroseconds(500);
 }
+
+
 sendAck();
 }
 
 void Y(int n)
 {
-for (int i=0;i<=n;i++)
+for (int i=0;i<=18*n;i++)
 {
-  digitalWrite(4,HIGH);
-  delay(100);
-  digitalWrite(4,LOW);
-  delay(100);
-
+  digitalWrite(stepPinY,HIGH); 
+  delayMicroseconds(500); 
+  digitalWrite(stepPinY,LOW); 
+  delayMicroseconds(500);
 }
 sendAck();
 }
