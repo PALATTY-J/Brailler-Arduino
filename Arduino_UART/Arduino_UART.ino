@@ -2,13 +2,18 @@
 #include <SoftwareSerial.h>
 #include <stdlib.h>
 
-const int ACKpin=2;
+const int ACKpin=12;
 
 const int stepPinX = 8; 
 const int dirPinX = 9;
  
 const int stepPinY = A0; 
 const int dirPinY = A1;
+
+const int rightSwitch = 2; 
+const int leftSwitch = A2;
+
+const int solenoidPin=13;
 
 
 SoftwareSerial mySerial(10, 11); // RX, TX
@@ -24,17 +29,25 @@ void setup()
 
   pinMode(ACKpin,OUTPUT);
 
+  pinMode(leftSwitch,INPUT);
+  pinMode(rightSwitch,INPUT); 
+
+  pinMode(solenoidPin,OUTPUT);
+
   digitalWrite(dirPinX,HIGH);
   digitalWrite(dirPinY,LOW);
 
   digitalWrite(ACKpin,LOW);
+
   
-  Serial.begin(9600);
-  mySerial.begin(9600);
-  
+   mySerial.begin(9600);
+   
+   initialCalibration();
+
+   attachInterrupt(digitalPinToInterrupt(rightSwitch),resetPosition,HIGH);
+
+ }
  
-  
-}
 void loop()
 {
 
@@ -74,6 +87,10 @@ if (tosend!=0)
       case 'y':
       Y(tosend);
       break;
+
+      case 'z':
+      Z(tosend);
+      break;
     }
  
   }
@@ -109,7 +126,7 @@ for (int i=0;i<=3*n;i++)
   delayMicroseconds(500);
 }
 
-
+checkForSpace();
 sendAck();
 }
 
@@ -124,4 +141,101 @@ for (int i=0;i<=18*n;i++)
 }
 sendAck();
 }
+
+void Z(int n)
+{
+  if (n==1)
+  {
+    digitalWrite(solenoidPin,HIGH);
+    delay(100);
+    digitalWrite(solenoidPin,LOW);
+  }
+
+   sendAck();
+
+}
+
+  void initialCalibration()
+{
+  digitalWrite(dirPinX,LOW);
+
+  boolean switchVal=digitalRead(leftSwitch);
+
+
+while (switchVal==HIGH)
+  {
+    digitalWrite(stepPinX,HIGH); 
+    delayMicroseconds(500); 
+    digitalWrite(stepPinX,LOW); 
+    delayMicroseconds(500);
+    switchVal=digitalRead(leftSwitch);
+    
+    }
+    
+   digitalWrite(dirPinX,HIGH);
+
+    for(int i=0;i<16;i++)
+   {
+    digitalWrite(stepPinX,HIGH); 
+    delayMicroseconds(500); 
+    digitalWrite(stepPinX,LOW); 
+    delayMicroseconds(500);
+
+   }
+   
+   }
+
+    
+
+
+void resetPosition()
+{
   
+  digitalWrite(dirPinX,LOW);
+  boolean VAL;
+  VAL=digitalRead(leftSwitch);
+
+
+while (VAL==1)
+  {
+    digitalWrite(stepPinX,HIGH); 
+    delayMicroseconds(500); 
+    digitalWrite(stepPinX,LOW); 
+    delayMicroseconds(500);
+    VAL=digitalRead(leftSwitch);
+  }
+   
+  
+   digitalWrite(dirPinX,HIGH);
+
+   for(int i=0;i<=3*5;i++)
+   {
+    digitalWrite(stepPinX,HIGH); 
+    delayMicroseconds(500); 
+    digitalWrite(stepPinX,LOW); 
+    delayMicroseconds(500);
+   }
+
+   }
+void checkForSpace()
+{
+  for (int i=0;i<=3*10;i++)
+  {
+    digitalWrite(stepPinX,HIGH); 
+    delayMicroseconds(500); 
+    digitalWrite(stepPinX,LOW); 
+    delayMicroseconds(500);
+  }
+   
+ digitalWrite(dirPinX,LOW);
+
+ for (int i=0;i<=3*10;i++)
+  {
+    digitalWrite(stepPinX,HIGH); 
+    delayMicroseconds(500); 
+    digitalWrite(stepPinX,LOW); 
+    delayMicroseconds(500);
+  }
+ digitalWrite(dirPinX,HIGH);
+
+}
