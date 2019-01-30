@@ -42,7 +42,7 @@ void setup()
   
    mySerial.begin(9600);
    
-   initialCalibration();
+
 
    attachInterrupt(digitalPinToInterrupt(rightSwitch),resetPosition,HIGH);
 
@@ -91,6 +91,12 @@ if (tosend!=0)
       case 'z':
       Z(tosend);
       break;
+
+      case 's':
+      initialCalibration();
+      break;
+      
+
     }
  
   }
