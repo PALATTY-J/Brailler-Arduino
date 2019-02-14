@@ -124,7 +124,7 @@ int dataConversion(char XYZ)
 
 void X(int n)
 {
-for (int i=0;i<=3*n;i++)
+for (int i=0;i<=n;i++)
 {
   digitalWrite(stepPinX,HIGH); 
   delayMicroseconds(500); 
@@ -153,7 +153,7 @@ void Z(int n)
   if (n==1)
   {
     digitalWrite(solenoidPin,HIGH);
-    delay(100);
+    delay(200);
     digitalWrite(solenoidPin,LOW);
   }
 
@@ -188,6 +188,7 @@ while (switchVal==HIGH)
     delayMicroseconds(500);
 
    }
+   sendAck();
    
    }
 
